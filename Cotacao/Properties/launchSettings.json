@@ -1,0 +1,8 @@
+{
+  "profiles": {
+    "Cotacao": {
+      "commandName": "Project",
+      "commandLineArgs": "VALE3 31.53 31.35"
+    }
+  }
+}
