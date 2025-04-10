@@ -1,7 +1,7 @@
-﻿using System.Reflection;
-using System.Timers;
+﻿using System.Timers;
+using Cotacao.Modelos;
 
-namespace Cotacao
+namespace Cotacao.Servicos
 {
     internal class CotacaoServico
     {

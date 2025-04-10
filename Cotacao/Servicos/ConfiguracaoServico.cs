@@ -1,12 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Cryptography;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
+using Cotacao.Encode;
+using Cotacao.Modelos;
 
-namespace Cotacao
+namespace Cotacao.Servicos
 {
     public class ConfiguracaoServico
     {

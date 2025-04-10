@@ -1,14 +1,7 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Net;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
-using System.Text;
-using System.Text.Json;
-using System.Threading.Tasks;
+﻿using System.Text.Json;
+using Cotacao.Modelos;
 
-namespace Cotacao
+namespace Cotacao.Servicos
 {
     internal class ApiServico
     {
@@ -27,12 +20,7 @@ namespace Cotacao
                 {
                     PropertyNameCaseInsensitive = true
                 });
-
-
-            //await res.Content.ReadFromJsonAsync<RetornoApiModelo>(new JsonSerializerOptions
-            //                                           { 
-            //                                               PropertyNameCaseInsensitive = true
-            //                                           });
+            
             throw new Exception($"Não foi possível recuperar a cotação atual: {res?.RequestMessage?.Content?.ReadAsStringAsync().Result}");
 
         }

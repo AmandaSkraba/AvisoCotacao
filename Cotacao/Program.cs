@@ -1,7 +1,5 @@
-﻿using System;
-using System.Globalization;
-using System.Net.Http.Headers;
-using System.Net.Http.Json;
+﻿using System.Globalization;
+using Cotacao.Servicos;
 
 namespace Cotacao
 {
