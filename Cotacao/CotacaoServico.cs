@@ -29,7 +29,7 @@ namespace Cotacao
 
         public void VerificaCotacao()
         {
-            RetornoApiModelo retornoApi = ApiServico.ObterApi(Ativo, _config).Result;//  new ApiModelo() { Ativo = "teste", CotaAtual = (decimal)33.50, DataBusca = DateTime.Now }
+            RetornoApiModelo retornoApi = ApiServico.ObterApi(Ativo, _config).Result;
             var cotacaoAtual = retornoApi.Retorno.FirstOrDefault();
 
             if (cotacaoAtual?.CotaAtual == UltimaCotacao)
@@ -46,13 +46,20 @@ namespace Cotacao
                 EmailServico.EnviarEmail(mensagem, cotacaoAtual, VlVenda);
                 //EnviaEmail dizendo que está na hora de vender cotas.
             }
-
-            if (cotacaoAtual?.CotaAtual <= VlCompra)
+            else if (cotacaoAtual?.CotaAtual <= VlCompra)
             {
                 mensagem = $"Está na hora de comprar cotas.";
                 Console.WriteLine($"{mensagem} ({cotacaoAtual.DataBusca.ToLocalTime()}, {cotacaoAtual.CotaAtual})");
                 EmailServico.EnviarEmail(mensagem, cotacaoAtual, VlCompra);
                 //EnviaEmail dizendo que está na hora de comprar cotas.
+            }
+            else
+            {
+                mensagem = $"Sua cota se mantém entre os valores indicados para base de compra/venda.";
+                Console.WriteLine($"{mensagem} ({cotacaoAtual?.DataBusca.ToLocalTime()}) \r\n" +
+                    $"Valor para alerta de compra: {VlCompra}. \r\n" +
+                    $"Valor para alerta de venda: {VlVenda}. \r\n" +
+                    $"Valor cota atual: {cotacaoAtual?.CotaAtual}. \r\n");
             }
 
             UltimaCotacao = cotacaoAtual?.CotaAtual ?? 0;
