@@ -33,7 +33,6 @@ namespace Cotacao.Servicos
                 smtp.UseDefaultCredentials = false;
                 smtp.DeliveryMethod = SmtpDeliveryMethod.Network;
 
-                //email de envio, senha = token gerado no gmail (Senha de app)
                 smtp.Credentials = new NetworkCredential(config.Usuario, config.Senha);
                 smtp.Send(message);
             }
