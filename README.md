@@ -3,7 +3,7 @@ Projeto realizado para avisar se uma cotação de um ativo está maior ou menor 
 
 ## Modo de usar:
 ### Pra quem é 'sabixão' e gosta de usar o CMD:
-- Entrar na pasta do executável via linha de comando com a seguinte estrutura: {executavel} {nome do ativo} {valor base de venda} {valor base de compra}.
+- Entrar na pasta do executável via linha de comando (o executável fica na pasta Publi) com a seguinte estrutura: {executavel} {nome do ativo} {valor base de venda} {valor base de compra}.
 **Exemplo:** > `cotacao.exe PETR4 10.40 12.50`.
   
 ### Pra quem não sabe nadinha de linha de comando:
