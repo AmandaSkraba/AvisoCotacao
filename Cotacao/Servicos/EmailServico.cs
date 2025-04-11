@@ -16,7 +16,7 @@ namespace Cotacao.Servicos
             mensagem.To.Add(config.Email);
             mensagem.Subject = $"Informação sobre Cotas: {ativo.Ativo}";
             mensagem.IsBodyHtml = true;
-            mensagem.Body = $"<h3>Olá, temos notícias sobre sua cotação {ativo.Ativo}:</h3>" + "<strong>Mensagem: </strong>" + mensagemCota + "<br>" + "<strong>Valor indicado: </strong> R$ " + vlIndicado + "<br>" + "<strong>Valor da Cotação atual:</strong> R$ " + ativo.CotaAtual.ToString("F2", CultureInfo.InvariantCulture).Replace(".", ",") + "<br>" + "<strong>Data da Cotação atual: </strong>" + ativo.DataBusca.ToLocalTime();
+            mensagem.Body = $"<h3>Olá, temos notícias sobre sua cotação: {ativo.NomeAtivo}:</h3>" + "<strong>Mensagem: </strong>" + mensagemCota + "<br>" + "<strong>Valor indicado: </strong> R$ " + vlIndicado + "<br>" + "<strong>Valor da Cotação atual:</strong> R$ " + ativo.CotaAtual.ToString("F2", CultureInfo.InvariantCulture).Replace(".", ",") + "<br>" + "<strong>Data da Cotação atual: </strong>" + ativo.DataBusca.ToLocalTime();
 
             ProcessarEnvio(mensagem, config);
         }
